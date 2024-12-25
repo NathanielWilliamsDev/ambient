@@ -1,3 +1,30 @@
-p{
-    color: red;
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    color: #92AA83;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sound-button{
+    border: none;
+    color: #d8fdc6;
+    background-color: #92AA83;
+    padding: 15px 30px;
+}
+
+.sound-button:hover{
+    cursor: pointer;
+    background-color: #627258;
 }
