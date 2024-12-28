@@ -3,32 +3,19 @@ let rain_button = document.querySelector('#rain-button');
 let fireplace_button = document.querySelector('#fireplace-button');
 let coffee_shop_button = document.querySelector('#coffee_shop-button');
 
-// Map each button ID to it's sound file
+// Mapping sounds (id in HTML) to audio file paths
 const sounds = {
-    'rain-button': './audio/rain-audio.wav',
-    'fireplace-button': './audio/fireplace-audio.mp3',
-    'coffee_shop-button': './audio/coffee_shop-audio.mp3'
+        'rain': './audio/rain-audio.wav',
+        'campfire': './audio/campfire-audio.mp3',
+        'coffee_shop': './audio/coffee_shop-audio.mp3'
 };
 
-
-// Attach a click eventlistener to each button
-Object.keys(sounds).forEach(buttonId => {
-    const button = document.querySelector(`#${buttonId}`);
-    if (button) { // Check if the button exists
-        button.addEventListener('click', function() {
-            playSound(sounds[buttonId]);
-        });
-    } else {
-        console.warn(`Button with ID "${buttonId}" not found.`);
-    }
-});
-
 // Common function to play sound
-function playSound(src) {
+function playSound(src, volume) {
     const sound = new Howl({
         src: [src],
         loop: true,
-        volume: 1
+        volume: volume
     });
     sound.play();
 }
@@ -37,7 +24,10 @@ function playSound(src) {
 let sliders = document.querySelectorAll('.slider');
 // loop through the list, add event listener
 for(let i=0; i < sliders.length; i++){
-    sliders[i].addEventListener('click', ()=>{
+    sliders[i].addEventListener('input', ()=>{
         console.log(sliders[i].value);
+        console.log((sliders[i].value)/100);
+        playSound(sounds[sliders[i].id], (sliders[i].value)/100);
+        
     });
 }
