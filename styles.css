@@ -29,3 +29,18 @@ header{
     cursor: pointer;
     background-color: #627258;
 }
+
+.sound-grid{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.sound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
